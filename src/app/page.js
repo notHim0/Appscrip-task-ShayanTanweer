@@ -4,9 +4,16 @@ import "./page.css";
 
 async function getProducts() {
 	try {
-		const res = await fetch("https://fakestoreapi.com/products", {
+		const res = await fetch("https://fakestoreapi.com/products?limit=20", {
 			next: { revalidate: 3600 },
+			headers: {
+				Accept: "application/json",
+				"User-Agent": "Mozilla/5.0",
+			},
 		});
+		console.log("API status:", res.status);
+		console.log("API ok:", res.ok);
+
 		if (!res.ok) {
 			throw new Error(`API error: ${res.status}`);
 		}
