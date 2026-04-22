@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Appscrip Task — Akera
+
+A Product Listing Page (PLP) built as part of the Appscrip frontend assignment.
+
+## Tech Stack
+
+- **Next.js 13+** (App Router)
+- **React** (Server & Client Components)
+- **Plain CSS** (no frameworks)
+
+## Features
+
+- Server Side Rendering (SSR) for product data via [Fake Store API](https://fakestoreapi.com/)
+- Responsive design — mobile, tablet, and desktop
+- Filter sidebar with collapsible sections
+- Sort dropdown (Recommended, Newest, Popular, Price)
+- SEO optimised — metadata, H1/H2 tags, JSON-LD schema, alt text
+- Accessible — semantic HTML, aria-labels throughout
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/               # Pages and layout
+├── components/
+│   ├── Header/        # Site header with nav
+│   ├── Footer/        # Site footer with accordion (mobile)
+│   ├── ProductGrid/   # Product grid layout
+│   ├── ProductCard/   # Individual product card
+│   ├── PLPClient/     # Client component managing filter/sort state
+│   ├── FilterSidebar/ # Filter panel
+│   └── SortDropdown/  # Sort options dropdown
+```
 
-## Learn More
+## Live Demo
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[View on Netlify](#) — _link to be added after deployment_
