@@ -1,66 +1,72 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import ProductGrid from "@/components/ProductGrid/ProductGrid";
+import PLPClient from "@/components/PLPClient/PLPClient";
+import "./page.css";
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.js file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+async function getProducts() {
+	const res = await fetch("https://fakestoreapi.com/products", {
+		cache: "no-store",
+	});
+	return res.json();
+}
+
+export default async function Home() {
+	const products = await getProducts();
+
+	// JSON-LD Schema
+	const schema = {
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		name: "Metta Muse Product Collection",
+		description: "Browse our exclusive collection of handcrafted products",
+		url: "https://mettamuse.com/shop",
+		numberOfItems: products.length,
+		itemListElement: products.map((product, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			item: {
+				"@type": "Product",
+				name: product.title,
+				description: product.description,
+				image: product.image,
+				url: `https://mettamuse.com/product/${product.id}`,
+				category: product.category,
+				aggregateRating: {
+					"@type": "AggregateRating",
+					ratingValue: product.rating.rate,
+					reviewCount: product.rating.count,
+				},
+			},
+		})),
+	};
+
+	return (
+		<div className="plp">
+			{/* JSON-LD Schema */}
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+			/>
+
+			{/* Breadcrumb */}
+			<nav className="plp__breadcrumb" aria-label="Breadcrumb">
+				<a href="/" className="plp__breadcrumb-link">
+					HOME
+				</a>
+				<span className="plp__breadcrumb-separator">|</span>
+				<span className="plp__breadcrumb-current">SHOP</span>
+			</nav>
+
+			{/* Hero - H1 */}
+			<div className="plp__hero">
+				<h1 className="plp__title">DISCOVER OUR PRODUCTS</h1>
+				<p className="plp__description">
+					Lorem ipsum dolor sit amet consectetur. Amet est posuere rhoncus
+					scelerisque. Dolor integer scelerisque nibh amet mi ut elementum
+					dolor.
+				</p>
+			</div>
+
+			<PLPClient products={products} />
+		</div>
+	);
 }

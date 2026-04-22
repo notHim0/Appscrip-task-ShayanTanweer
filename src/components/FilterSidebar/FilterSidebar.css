@@ -1,0 +1,94 @@
+.filter-sidebar {
+	width: 280px;
+	flex-shrink: 0;
+	padding-right: 40px;
+}
+
+.filter-sidebar__customizable {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 16px 0;
+}
+
+.filter-sidebar__checkbox {
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	accent-color: #000;
+}
+
+.filter-sidebar__checkbox-label {
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 1px;
+	cursor: pointer;
+}
+
+.filter-sidebar__divider {
+	height: 1px;
+	background-color: #e0e0e0;
+}
+
+.filter-sidebar__section {
+	margin: 0;
+}
+
+.filter-sidebar__section-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 16px 0;
+	text-align: left;
+}
+
+.filter-sidebar__section-label {
+	font-size: 13px;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+
+.filter-sidebar__chevron {
+	transition: transform 0.2s ease;
+	flex-shrink: 0;
+}
+
+.filter-sidebar__chevron--open {
+	transform: rotate(180deg);
+}
+
+.filter-sidebar__current-value {
+	font-size: 13px;
+	color: #888;
+	margin: 0 0 12px 0;
+}
+
+.filter-sidebar__options {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding-bottom: 12px;
+}
+
+.filter-sidebar__option {
+	background: none;
+	border: none;
+	text-align: left;
+	font-size: 13px;
+	color: #555;
+	cursor: pointer;
+	padding: 4px 0;
+}
+
+.filter-sidebar__option:hover {
+	color: #000;
+}
+
+.filter-sidebar__option--active {
+	color: #000;
+	font-weight: 600;
+}
