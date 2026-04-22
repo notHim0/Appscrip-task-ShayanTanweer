@@ -1,4 +1,4 @@
-# Appscrip Task — Akera
+# Appscrip Task — Shayan Tanweer
 
 A Product Listing Page (PLP) built as part of the Appscrip frontend assignment.
 
@@ -46,4 +46,4 @@ src/
 
 ## Live Demo
 
-[View on Netlify](#) — _link to be added after deployment_
+[View on Netlify](#) — _(https://dapper-appscrip-0beeb8.netlify.app/)_

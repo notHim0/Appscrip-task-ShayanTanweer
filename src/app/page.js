@@ -3,12 +3,26 @@ import PLPClient from "@/components/PLPClient/PLPClient";
 import "./page.css";
 
 async function getProducts() {
-	const res = await fetch("https://fakestoreapi.com/products", {
-		cache: "no-store",
-	});
-	return res.json();
-}
+	try {
+		const res = await fetch("https://fakestoreapi.com/products", {
+			cache: "no-store",
+		});
 
+		if (!res.ok) {
+			throw new Error(`API error: ${res.status}`);
+		}
+
+		const contentType = res.headers.get("content-type");
+		if (!contentType || !contentType.includes("application/json")) {
+			throw new Error("Response is not JSON");
+		}
+
+		return res.json();
+	} catch (error) {
+		console.error("Failed to fetch products:", error);
+		return []; // return empty array so page still renders
+	}
+}
 export default async function Home() {
 	const products = await getProducts();
 
