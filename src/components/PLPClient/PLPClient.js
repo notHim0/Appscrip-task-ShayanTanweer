@@ -1,12 +1,26 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import FilterSidebar from "../FilterSidebar/FilterSidebar";
 import SortDropdown from "../SortDropdown/SortDropdown";
 import ProductGrid from "../ProductGrid/ProductGrid";
 import "./PLPClient.css";
 
-export default function PLPClient({ products }) {
+export default function PLPClient({ products: initialProducts }) {
+	const [products, setProducts] = useState(
+		Array.isArray(initialProducts) ? initialProducts : [],
+	);
+
+	// Fallback client-side fetch if SSR returned empty
+	useEffect(() => {
+		if (!initialProducts || initialProducts.length === 0) {
+			fetch("https://fakestoreapi.com/products")
+				.then((res) => res.json())
+				.then((data) => setProducts(data))
+				.catch((err) => console.error("Client fetch failed:", err));
+		}
+	}, [initialProducts]);
+
 	const [showFilter, setShowFilter] = useState(false);
 	const [sortBy, setSortBy] = useState("recommended");
 	const [filters, setFilters] = useState({});
@@ -23,7 +37,6 @@ export default function PLPClient({ products }) {
 
 	return (
 		<div className="plp-client">
-			{/* Filter Bar */}
 			<div className="plp-client__filter-bar">
 				<div className="plp-client__filter-left">
 					<span className="plp-client__item-count">3425 ITEMS</span>
@@ -52,13 +65,18 @@ export default function PLPClient({ products }) {
 
 			<div className="plp-client__divider"></div>
 
-			{/* Content */}
 			<div className="plp-client__content">
 				{showFilter && <FilterSidebar onFilterChange={setFilters} />}
 				<div
 					className={`plp-client__grid-wrapper ${showFilter ? "plp-client__grid-wrapper--filtered" : ""}`}
 				>
-					<ProductGrid products={sortedProducts} />
+					{products.length === 0 ? (
+						<p style={{ padding: "40px 0", color: "#888" }}>
+							Loading products...
+						</p>
+					) : (
+						<ProductGrid products={sortedProducts} />
+					)}
 				</div>
 			</div>
 		</div>
