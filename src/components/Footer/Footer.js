@@ -99,37 +99,37 @@ export default function Footer() {
 					<h3 className="footer__col-heading">Quick Links</h3>
 					<ul className="footer__links-list">
 						<li>
-							<Link href="/orders" className="footer__link">
+							<Link href="/" className="footer__link">
 								Orders & Shipping
 							</Link>
 						</li>
 						<li>
-							<Link href="/sell" className="footer__link">
+							<Link href="/" className="footer__link">
 								Join/Login as a Seller
 							</Link>
 						</li>
 						<li>
-							<Link href="/payment" className="footer__link">
+							<Link href="/" className="footer__link">
 								Payment & Pricing
 							</Link>
 						</li>
 						<li>
-							<Link href="/returns" className="footer__link">
+							<Link href="/" className="footer__link">
 								Return & Refunds
 							</Link>
 						</li>
 						<li>
-							<Link href="/faq" className="footer__link">
+							<Link href="/" className="footer__link">
 								FAQs
 							</Link>
 						</li>
 						<li>
-							<Link href="/privacy" className="footer__link">
+							<Link href="/" className="footer__link">
 								Privacy Policy
 							</Link>
 						</li>
 						<li>
-							<Link href="/terms" className="footer__link">
+							<Link href="/" className="footer__link">
 								Terms & Conditions
 							</Link>
 						</li>
@@ -232,32 +232,32 @@ export default function Footer() {
 				<FooterAccordion title="mettã muse">
 					<ul className="footer__links-list">
 						<li>
-							<Link href="/about" className="footer__link">
+							<Link href="/" className="footer__link">
 								About Us
 							</Link>
 						</li>
 						<li>
-							<Link href="/stories" className="footer__link">
+							<Link href="/" className="footer__link">
 								Stories
 							</Link>
 						</li>
 						<li>
-							<Link href="/artisans" className="footer__link">
+							<Link href="/" className="footer__link">
 								Artisans
 							</Link>
 						</li>
 						<li>
-							<Link href="/boutiques" className="footer__link">
+							<Link href="/" className="footer__link">
 								Boutiques
 							</Link>
 						</li>
 						<li>
-							<Link href="/contact" className="footer__link">
+							<Link href="/" className="footer__link">
 								Contact Us
 							</Link>
 						</li>
 						<li>
-							<Link href="/eu-collaborations" className="footer__link">
+							<Link href="/" className="footer__link">
 								EU Collaborations Data
 							</Link>
 						</li>
@@ -269,37 +269,37 @@ export default function Footer() {
 				<FooterAccordion title="Quick Links">
 					<ul className="footer__links-list">
 						<li>
-							<Link href="/orders" className="footer__link">
+							<Link href="/" className="footer__link">
 								Orders & Shipping
 							</Link>
 						</li>
 						<li>
-							<Link href="/sell" className="footer__link">
+							<Link href="/" className="footer__link">
 								Join/Login as a Seller
 							</Link>
 						</li>
 						<li>
-							<Link href="/payment" className="footer__link">
+							<Link href="/" className="footer__link">
 								Payment & Pricing
 							</Link>
 						</li>
 						<li>
-							<Link href="/returns" className="footer__link">
+							<Link href="/" className="footer__link">
 								Return & Refunds
 							</Link>
 						</li>
 						<li>
-							<Link href="/faq" className="footer__link">
+							<Link href="/" className="footer__link">
 								FAQs
 							</Link>
 						</li>
 						<li>
-							<Link href="/privacy" className="footer__link">
+							<Link href="/" className="footer__link">
 								Privacy Policy
 							</Link>
 						</li>
 						<li>
-							<Link href="/terms" className="footer__link">
+							<Link href="/" className="footer__link">
 								Terms & Conditions
 							</Link>
 						</li>

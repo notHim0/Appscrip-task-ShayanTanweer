@@ -40,11 +40,11 @@ export default function ProductCard({ product }) {
 			<div className="product-card__info">
 				<h2 className="product-card__title">{product.title}</h2>
 				<p className="product-card__pricing">
-					<Link href="/signin" className="product-card__signin-link">
+					<Link href="/" className="product-card__signin-link">
 						Sign in
 					</Link>{" "}
 					or{" "}
-					<Link href="/register" className="product-card__signin-link">
+					<Link href="/" className="product-card__signin-link">
 						Create an account
 					</Link>{" "}
 					to see pricing
